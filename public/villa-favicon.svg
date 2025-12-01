@@ -1,0 +1,16 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="12" fill="#7A946E"/>
+  <circle cx="32" cy="32" r="24" stroke="white" stroke-width="2" fill="none"/>
+  <g transform="translate(32, 32)">
+    <!-- Hoja tropical simplificada -->
+    <path d="M0,-18 Q-8,-12 -6,-6 Q-4,-2 0,0 Q4,-2 6,-6 Q8,-12 0,-18 Z" fill="white"/>
+    <path d="M0,-18 Q-12,-8 -10,0 Q-8,4 0,0 Q8,4 10,0 Q12,-8 0,-18 Z" fill="white"/>
+    <path d="M0,-18 Q-16,-4 -12,8 Q-8,12 0,0 Q8,12 12,8 Q16,-4 0,-18 Z" fill="white"/>
+    <!-- Líneas de la hoja -->
+    <line x1="0" y1="-18" x2="0" y2="0" stroke="#7A946E" stroke-width="1"/>
+    <line x1="0" y1="-12" x2="-4" y2="-8" stroke="#7A946E" stroke-width="1"/>
+    <line x1="0" y1="-12" x2="4" y2="-8" stroke="#7A946E" stroke-width="1"/>
+    <line x1="0" y1="-6" x2="-6" y2="-2" stroke="#7A946E" stroke-width="1"/>
+    <line x1="0" y1="-6" x2="6" y2="-2" stroke="#7A946E" stroke-width="1"/>
+  </g>
+</svg>

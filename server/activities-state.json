@@ -1,0 +1,35 @@
+{
+  "activities": [
+    {
+      "id": 1,
+      "name": "Alquiler de Paddle Surf",
+      "description": "Sumérgete en las aguas cristalinas del Caribe colombiano con nuestras clases de paddle surf. Experimenta la tranquilidad y la emoción de deslizarte sobre las olas mientras contemplas el impresionante paisaje marino de Moñitos.",
+      "shortDescription": "Clases de paddle surf para principiantes y avanzados",
+      "price": 150000,
+      "duration": "2 horas",
+      "location": "Playa Bahía Santamaría",
+      "includes": "[\"Tabla de paddle surf\",\"Remo\",\"Chaleco salvavidas\",\"Instructor certificado\",\"Sesión de fotos\"]",
+      "images": "[\"/uploads/activity-1752434821504-703856321.png\",\"/uploads/activity-1752434821313-386812909.png\",\"/uploads/activity-1752434821720-296180441.png\"]",
+      "isActive": true,
+      "iconType": "paddle",
+      "createdAt": "2025-07-12T17:38:01.925Z",
+      "updatedAt": "2025-07-13T19:27:04.111Z"
+    },
+    {
+      "id": 2,
+      "name": "Cena Romántica",
+      "description": "Disfruta de una experiencia culinaria inolvidable con nuestra cena romántica frente al mar. Dos exquisitos platos de nuestra carta especial acompañados de una botella de vino selecto, todo mientras contemplas la puesta de sol sobre el Caribe.",
+      "shortDescription": "Cena romántica con vista al mar",
+      "price": 180000,
+      "duration": "3 horas",
+      "location": "Terraza privada con vista al mar",
+      "includes": "[\"Dos platos principales de la carta\",\"Botella de vino selecto\",\"Decoración romántica\",\"Servicio personalizado\",\"Vista al atardecer\"]",
+      "images": "[\"/uploads/activity-1752434567311-848595225.png\",\"/uploads/activity-1752434675573-75636671.png\",\"/uploads/activity-1752438308240-887495506.png\"]",
+      "isActive": true,
+      "iconType": "dinner",
+      "createdAt": "2025-07-12T17:38:01.925Z",
+      "updatedAt": "2025-07-13T20:25:08.399Z"
+    }
+  ],
+  "currentActivityId": 3
+}

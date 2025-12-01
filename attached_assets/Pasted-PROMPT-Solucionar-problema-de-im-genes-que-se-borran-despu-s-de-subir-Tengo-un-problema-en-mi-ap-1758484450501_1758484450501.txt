@@ -1,0 +1,38 @@
+PROMPT: Solucionar problema de imágenes que se borran después de subir
+
+Tengo un problema en mi aplicación donde las imágenes se suben correctamente pero después se borran o las referencias se rompen cuando se reinicia el servidor. Las imágenes se están guardando en /uploads/ pero necesito un sistema más robusto.
+
+Implementa una solución completa que incluya:
+
+1. Almacenamiento Persistente:
+
+Migra las imágenes de /uploads/ a /public/assets/[tipo]/ donde [tipo] es el tipo de contenido (ej: activities, gallery, etc.)
+Configura el servidor para servir archivos estáticos desde /public/
+2. Sistema de Migración Automática:
+Crea un endpoint /api/admin/migrate-images que haga:
+
+Copie archivos físicos de /uploads/ a /public/assets/[tipo]/
+Actualice las URLs en la base de datos (cambiar /uploads/imagen-... por /assets/[tipo]/imagen-...)
+Detecte y recupere imágenes "huérfanas" (archivos que existen físicamente pero no están vinculados en la BD)
+Limpie referencias rotas (URLs de imágenes que ya no existen físicamente)
+Proporcione un reporte detallado de: archivos migrados, URLs actualizadas, imágenes huérfanas recuperadas
+3. Configuración de Multer:
+
+Configura multer para que las nuevas subidas vayan directamente a /public/assets/[tipo]/
+Asegúrate de que las URLs generadas usen la ruta correcta (/assets/[tipo]/filename)
+4. Validación en Tiempo Real:
+
+Implementa verificación server-side de que las imágenes existen antes de servir las URLs
+Maneja casos donde las imágenes referenciadas no existen
+5. Algoritmo de Recuperación de Huérfanos:
+Para imágenes huérfanas, implementa lógica que:
+
+Identifique archivos físicos sin referencias en BD
+Los asocie inteligentemente con registros que tienen campos de imagen vacíos
+Priorice por fecha de creación del archivo vs fecha de creación del registro
+Incluye logging detallado para debugging y asegúrate de que el sistema sea backward compatible durante la transición.
+
+Lenguaje/Framework: [especifica tu stack]
+Base de datos: [especifica tu BD]
+
+Ese prompt debería darle al agente toda la información necesaria para implementar la misma solución que usamos aquí. ¿Te sirve o necesitas que ajuste algo específico?

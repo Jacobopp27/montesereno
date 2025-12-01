@@ -1,0 +1,277 @@
+0) Identidad nueva (config central)
+
+Crea src/config/glamping.ts (o .js si no hay TS) y úsalo como única fuente de textos/valores/links/imagenes/horarios:
+
+export const GLAMPING = {
+  brand: "Montesereno Glamping",
+  colors: {
+    primary: "#33443C",    // fondo/nav/hero
+    accent:  "#E0CBAD",    // botones/acentos
+    surface: "#F5F2EC",    // cards/inputs
+    onPrimary: "#FFFFFF",
+    onSurface: "#1E2A25"
+  },
+  contact: {
+    whatsappIntl: "573136275896",
+    phoneDisplay: "+57 313 627 5896",
+    instagram: "@glamping_montesereno"
+  },
+  hero: {
+    title: "Reconecta con lo esencial",
+    subtitle:
+      "Vive una experiencia única en Montesereno Glamping, conexión total con la naturaleza en un entorno de montaña.",
+    ctaText: "Reservar Ahora"
+  },
+  pricing: {
+    weekdayCouple: 350000,
+    weekendCouple: 450000,
+    extraPerson: 50000,
+    notes: ["Desayuno incluido para 2 personas"] // sin política de niños
+  },
+  operations: {
+    checkIn: "3:00 p.m.",   // dato ficticio
+    checkOut: "11:00 a.m."  // dato ficticio
+  },
+  assets: {
+    logo:  "/logo.png",
+    hero:  "/hero.jpg",
+    rates: "/tarifas.jpg"
+  },
+  policies: {
+    behavior: [
+      "Estamos en zona agrícola activa; pueden presentarse labores externas fuera de nuestro control.",
+      "Prohibido fumar en el área del jacuzzi por seguridad (vapores/sistemas de calentamiento).",
+      "Ambiente respetuoso y familiar; nos reservamos el derecho de admisión y permanencia."
+    ],
+    cancellation: {
+      retract: "Puedes retractarte dentro de 5 días hábiles desde la compra si tu check-in es en 5 días hábiles o más. Si tu llegada es en 4 días hábiles o menos, el retracto no aplica. Devolución en máximo 30 días calendario.",
+      outside: [
+        "Más de 15 días antes del check-in: 100% reembolso o crédito 100% para reprogramar en 12 meses.",
+        "8–14 días: 50% reembolso o crédito 100% para reprogramar en 12 meses (1 reprogramación sin costo).",
+        "≤7 días / no-show: sin reembolso. Puedes reprogramar con crédito 100% en 6 meses (pagas diferencias si aplica)."
+      ],
+      nonRefundable: "Tarifas/promos no reembolsables: sin devolución; 1 reprogramación con 7 días de antelación (pagando diferencias si aplica).",
+      forceMajeure: "Cierres viales o alertas climáticas: reprogramación sin penalidad (misma temporada/rango) o crédito 100% por 12 meses.",
+      businessDaysNote: "Días hábiles: lunes a viernes, sin festivos."
+    }
+  }
+};
+
+
+Reemplaza literales duros (marca, precios, teléfonos, horarios) para que todo venga de GLAMPING.
+
+En componentes que muestren tarifas/hero/contacto/políticas, importa GLAMPING y renderiza desde ahí.
+
+1) Assets
+
+Coloca en /public (o carpeta equivalente ya usada por el proyecto):
+
+logo.png (del archivo “logo original.png”)
+
+hero.jpg (del banner “banner, montesereno.png”)
+
+tarifas.jpg (del “Tarifas.JPG”)
+
+Asegúrate de que los <img> apunten a GLAMPING.assets.*.
+
+2) Estilos (solo UI — sin romper lógica)
+
+Importa fuentes en index.html:
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+
+En el CSS global (o Tailwind config/theme si aplica) añade variables y aplica a navbar, hero, cards, inputs y botones. Si usas CSS simple, pega:
+
+:root{
+  --primary:#33443C; --accent:#E0CBAD; --surface:#F5F2EC;
+  --on-primary:#fff; --on-surface:#1E2A25;
+}
+html,body{ background:var(--primary); color:var(--on-primary); font-family:Inter,system-ui,Arial; margin:0; }
+h1,h2,h3{ font-family:"Playfair Display",serif; letter-spacing:.02em; }
+.container{ max-width:1200px; margin:0 auto; padding-inline:1rem; }
+
+.navbar{ position:sticky; top:0; z-index:40; backdrop-filter:blur(12px); background:rgba(51,68,60,.85); }
+.navbar a{ color:var(--on-primary); text-decoration:none; padding:.75rem 1rem; }
+.navbar a:hover{ color:#fff; }
+
+.btn{ border:none; border-radius:999px; padding:.9rem 1.4rem; font-weight:600; cursor:pointer; transition:.2s; }
+.btn-primary{ background:var(--accent); color:var(--primary); }
+.btn-primary:hover{ filter:brightness(1.06); transform:translateY(-1px); }
+
+input,select,textarea{
+  background:var(--surface); color:var(--on-surface);
+  border:1px solid rgba(30,42,37,.22); border-radius:14px; padding:.9rem 1rem;
+}
+.card{
+  background:var(--surface); color:var(--on-surface);
+  border-radius:20px; padding:1.25rem;
+  border:1px solid rgba(30,42,37,.15); box-shadow:0 10px 24px rgba(0,0,0,.18);
+}
+
+.hero{ position:relative; min-height:70vh; display:grid; align-items:center; background:url('/hero.jpg') center/cover no-repeat; }
+.hero::after{ content:""; position:absolute; inset:0; background:rgba(51,68,60,.55); }
+.hero .content{ position:relative; z-index:1; max-width:720px; padding:2rem; }
+.hero h1 span{ color:var(--accent); }
+
+
+No cambies IDs/name/handlers de formularios. Solo aplica clases.
+
+3) Hero + Navbar
+
+Hero renderiza GLAMPING.hero.title (con <span> en dorado) y GLAMPING.hero.subtitle.
+
+CTA “Reservar Ahora” mantiene su anchor/acción actual.
+
+En navbar agrega link “Políticas” → #politicas.
+
+4) Tarifas (valores nuevos)
+
+Si ya existe un componente de tarifas, solo inyecta desde GLAMPING.pricing. Si no, muestra una card con:
+
+Lunes–Viernes (pareja): $ 350.000
+
+Fines/Festivos (pareja): $ 450.000
+
+Persona adicional: $ 50.000
+
+Notas: renderiza GLAMPING.pricing.notes (sin mención de niños).
+
+5) Información útil (horarios ficticios)
+
+En “Reserva” o “Información” agrega una card con:
+
+Check-in: GLAMPING.operations.checkIn
+
+Check-out: GLAMPING.operations.checkOut
+
+(No incluir política de niños en ninguna parte.)
+
+6) Sección Políticas (nueva)
+
+Añade sección #politicas con acordeones <details> estilizados con .card. Renderiza GLAMPING.policies.*.
+Estructura sugerida: Comportamiento y otros, Cancelación y reembolsos (subapartados: Retracto, Fuera del retracto, No reembolsables/promos, Fuerza mayor + nota de días hábiles).
+
+7) Conectar NUEVA base de datos PostgreSQL
+
+En .env actualiza:
+
+DATABASE_URL="postgresql://<usuario>:<password>@<host>:<port>/<db>?sslmode=require"
+
+
+Detecta ORM del proyecto:
+
+Si usa Prisma
+
+Verifica/crea modelos mínimos (idempotente, no borrar datos):
+
+model Cabin {
+  id String @id @default(cuid())
+  name String
+  description String?
+  capacity Int
+  weekdayPrice Int
+  weekendPrice Int
+  extraPersonPrice Int
+  images String[]
+  bookings Booking[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Booking {
+  id String @id @default(cuid())
+  cabinId String
+  cabin Cabin @relation(fields:[cabinId], references:[id])
+  guestName String
+  guestEmail String
+  guestPhone String?
+  guests Int
+  checkIn DateTime
+  checkOut DateTime
+  totalPrice Int?
+  status String @default("confirmed")
+  source String?
+  notes String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([cabinId, checkIn, checkOut])
+}
+model Review { id String @id @default(cuid()) name String rating Int comment String createdAt DateTime @default(now()) }
+model Gallery { id String @id @default(cuid()) url String alt String? order Int @default(0) }
+
+
+Scripts:
+
+{ "scripts": {
+  "db:generate": "prisma generate",
+  "db:migrate": "prisma migrate deploy",
+  "db:seed": "tsx scripts/seed.ts"
+}}
+
+
+Seed mínimo (idempotente) en scripts/seed.ts:
+
+import { PrismaClient } from "@prisma/client";
+const db = new PrismaClient();
+async function main(){
+  await db.cabin.upsert({
+    where:{ id:"default-cabin" }, update:{},
+    create:{
+      id:"default-cabin",
+      name:"Cabaña Vista Montaña",
+      description:"Cálida, con desayuno incluido.",
+      capacity:3,
+      weekdayPrice:350000,
+      weekendPrice:450000,
+      extraPersonPrice:50000,
+      images:["/hero.jpg","/tarifas.jpg"]
+    }
+  });
+}
+main().finally(()=>db.$disconnect());
+
+
+Ejecuta (no destructivo):
+
+npm run db:generate && npm run db:migrate && npm run db:seed
+
+
+Si NO usa Prisma (Sequelize/Drizzle/TypeORM):
+
+Crea migración equivalente para cabins, bookings, reviews, gallery.
+
+Asegura índices en bookings (cabin_id, check_in, check_out).
+
+Validación de solape al crear reserva (si no existe, agrégala):
+
+Rechaza conflicto (HTTP 409) si daterange(check_in, check_out, '[]') choca con una ya existente para la misma cabaña.
+
+8) Accesibilidad + Responsive rápido
+
+Labels visibles, aria-* en toggles/accordions.
+
+Lazy-loading para imágenes (loading="lazy").
+
+Sticky CTA “Reservar” en móvil (botón .btn-primary posicionado fijo abajo a la derecha).
+
+9) SEO
+
+<title>Montesereno Glamping | Reconecta con lo esencial</title>
+
+<meta name="description" content="Glamping en Antioquia con diseño en madera, luz cálida y naturaleza. Desayuno incluido para 2. Reserva por WhatsApp.">
+
+OpenGraph/Twitter con /hero.jpg. Favicon desde /logo.png.
+
+10) Criterios de aceptación
+
+La UI muestra marca, colores, precios y horarios ficticios desde GLAMPING.
+
+Existe sección Políticas accesible desde el navbar.
+
+Formulario y handlers siguen funcionando; los IDs/name se mantienen.
+
+.env apunta a la nueva DB; migraciones/seed corren sin errores.
+
+Crear una reserva persiste en bookings y valida solapamiento.
+
+No aparece ninguna política de niños en el sitio.

@@ -1,0 +1,32 @@
+{
+  "currentGalleryId": 16,
+  "galleryImages": [
+    {
+      "id": 13,
+      "title": "Montaña",
+      "description": "",
+      "imageUrl": "/attached_assets/gallery-1752435724889-960494257.jpg",
+      "isActive": true,
+      "createdAt": "2025-09-18T18:50:30.000Z",
+      "updatedAt": "2025-09-18T18:50:30.000Z"
+    },
+    {
+      "id": 14,
+      "title": "Cabaña",
+      "description": "",
+      "imageUrl": "/attached_assets/gallery-1752438510882-195953847.png",
+      "isActive": true,
+      "createdAt": "2025-09-18T18:50:30.000Z",
+      "updatedAt": "2025-09-18T18:50:30.000Z"
+    },
+    {
+      "id": 15,
+      "title": "Vista",
+      "description": "",
+      "imageUrl": "/attached_assets/gallery-1752438535680-33261738.png",
+      "isActive": true,
+      "createdAt": "2025-09-18T18:50:30.000Z",
+      "updatedAt": "2025-09-18T18:50:30.000Z"
+    }
+  ]
+}

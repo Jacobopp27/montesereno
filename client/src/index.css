@@ -1,0 +1,580 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Montesereno Glamping - Tipografías */
+html, body { 
+  background: hsl(var(--primary)); 
+  color: hsl(var(--on-primary)); 
+  font-family: Inter, system-ui, Arial; 
+  margin: 0; 
+}
+
+h1, h2, h3 { 
+  font-family: "Playfair Display", serif; 
+  letter-spacing: 0.02em; 
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Montesereno Glamping - Estilos específicos */
+.container { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding-inline: 1rem; 
+}
+
+.navbar { 
+  position: sticky; 
+  top: 0; 
+  z-index: 40; 
+  backdrop-filter: blur(12px); 
+  background: rgba(51, 68, 60, 0.85); 
+}
+
+.navbar a { 
+  color: hsl(var(--on-primary)); 
+  text-decoration: none; 
+  padding: 0.75rem 1rem; 
+}
+
+.navbar a:hover { 
+  color: #fff; 
+}
+
+.btn { 
+  border: none; 
+  border-radius: 999px; 
+  padding: 0.9rem 1.4rem; 
+  font-weight: 600; 
+  cursor: pointer; 
+  transition: 0.2s; 
+}
+
+.btn-primary { 
+  background: hsl(var(--accent)); 
+  color: hsl(var(--primary)); 
+}
+
+.btn-primary:hover { 
+  filter: brightness(1.06); 
+  transform: translateY(-1px); 
+}
+
+input, select, textarea {
+  background: hsl(var(--surface)); 
+  color: hsl(var(--on-surface));
+  border: 1px solid rgba(30, 42, 37, 0.22); 
+  border-radius: 14px; 
+  padding: 0.9rem 1rem;
+}
+
+.card {
+  background: hsl(var(--surface)); 
+  color: hsl(var(--on-surface));
+  border-radius: 20px; 
+  padding: 1.25rem;
+  border: 1px solid rgba(30, 42, 37, 0.15); 
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.hero { 
+  position: relative; 
+  min-height: 70vh; 
+  display: grid; 
+  align-items: center; 
+  background: url('/hero.jpg') center/cover no-repeat; 
+}
+
+.hero::after { 
+  content: ""; 
+  position: absolute; 
+  inset: 0; 
+  background: rgba(51, 68, 60, 0.55); 
+}
+
+.hero .content { 
+  position: relative; 
+  z-index: 1; 
+  max-width: 720px; 
+  padding: 2rem; 
+}
+
+.hero h1 span { 
+  color: hsl(var(--accent)); 
+}
+
+/* Tipografía elegante personalizada */
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-coterie {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.font-coterie::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #4C622E, transparent);
+  opacity: 0.6;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Texturas y patrones de fondo con paleta tierra */
+.texture-paper {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(199, 184, 168, 0.2) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.texture-subtle {
+  background-image: 
+    linear-gradient(45deg, rgba(196, 139, 92, 0.08) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(196, 139, 92, 0.08) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(196, 139, 92, 0.08) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(196, 139, 92, 0.08) 75%);
+  background-size: 30px 30px;
+  background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
+}
+
+.texture-waves {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 12px,
+    rgba(196, 165, 98, 0.12) 12px,
+    rgba(196, 165, 98, 0.12) 24px
+  );
+}
+
+.texture-earth {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(196, 139, 92, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(151, 107, 71, 0.08) 0%, transparent 50%);
+  background-size: 40px 40px;
+}
+
+.texture-ocean-waves {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='50' viewBox='0 0 100 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,25 Q25,10 50,25 T100,25' stroke='%234C622E' stroke-width='2' fill='none' opacity='0.15'/%3E%3Cpath d='M0,35 Q25,20 50,35 T100,35' stroke='%234C622E' stroke-width='1.5' fill='none' opacity='0.1'/%3E%3Cpath d='M0,15 Q25,0 50,15 T100,15' stroke='%234C622E' stroke-width='1' fill='none' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: 100px 50px;
+  background-repeat: repeat;
+}
+
+/* Efectos de vidrio esmerilado con paleta tierra */
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(233, 214, 176, 0.85); /* #E9D6B0 con transparencia */
+  border: 1px solid rgba(199, 184, 168, 0.3); /* Borde beige medio */
+}
+
+/* Sombras elegantes */
+.shadow-elegant {
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-elegant-lg {
+  box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.12), 0 8px 15px -5px rgba(0, 0, 0, 0.08);
+}
+
+:root {
+  --primary: 160 20% 23%; /* #33443C - fondo/nav/hero */
+  --accent: 39 31% 81%; /* #E0CBAD - botones/acentos */
+  --surface: 49 27% 95%; /* #F5F2EC - cards/inputs */
+  --on-primary: 0 0% 100%; /* #FFFFFF */
+  --on-surface: 125 17% 13%; /* #1E2A25 */
+  
+  /* Shadcn compatibility */
+  --background: 49 27% 95%; /* #F5F2EC - surface */
+  --foreground: 125 17% 13%; /* #1E2A25 - on-surface */
+  --muted: 49 27% 90%; /* lighter surface */
+  --muted-foreground: 125 17% 40%; /* lighter on-surface */
+  --popover: 49 27% 95%; /* #F5F2EC - surface */
+  --popover-foreground: 125 17% 13%; /* #1E2A25 - on-surface */
+  --card: 49 27% 95%; /* #F5F2EC - surface */
+  --card-foreground: 125 17% 13%; /* #1E2A25 - on-surface */
+  --border: 39 31% 75%; /* lighter accent */
+  --input: 49 27% 95%; /* #F5F2EC - surface */
+  --primary-foreground: 0 0% 100%; /* #FFFFFF */
+  --secondary: 39 31% 85%; /* lighter accent */
+  --secondary-foreground: 125 17% 13%; /* #1E2A25 */
+  --accent-foreground: 125 17% 13%; /* #1E2A25 */
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 160 20% 23%; /* #33443C */
+  --radius: 0.5rem;
+
+  /* Montesereno palette */
+  --earth-base: 49 27% 95%; /* #F5F2EC - surface */
+  --earth-light: 49 27% 97%; /* lighter surface */
+  --earth-medium: 39 31% 85%; /* lighter accent */
+  --earth-dark: 39 31% 75%; /* darker accent */
+  --earth-terracotta: 39 31% 81%; /* #E0CBAD - accent */
+  --earth-clay: 160 20% 23%; /* #33443C - primary */
+  --earth-ochre: 39 31% 81%; /* #E0CBAD - accent */
+  --earth-umber: 160 20% 18%; /* darker primary */
+  --earth-text: 125 17% 13%; /* #1E2A25 - on-surface */
+  
+  /* Montesereno Glamping compatibility */
+  --nature-olive: 160 20% 23%; /* #33443C - primary */
+  --nature-beige: 49 27% 95%; /* #F5F2EC - surface */
+  --nature-sand: 39 31% 81%; /* #E0CBAD - accent */
+  --nature-text: 125 17% 13%; /* #1E2A25 - on-surface */
+  --nature-button: 160 20% 23%; /* #33443C - primary */
+  --nature-button-hover: 160 20% 18%; /* darker primary */
+  --nature-border: 39 31% 75%; /* lighter accent */
+  --nature-background: 49 27% 95%; /* #F5F2EC - surface */
+  
+  /* Colors compatibility */
+  --navy: 160 20% 23%; /* #33443C - primary */
+  --gold: 39 31% 81%; /* #E0CBAD - accent */
+  --royal-blue: 160 20% 23%; /* #33443C - primary */
+  --light-gold: 49 27% 95%; /* #F5F2EC - surface */
+  --charcoal: 125 17% 13%; /* #1E2A25 - on-surface */
+  --success: 160 20% 23%; /* #33443C - primary */
+}
+
+/* Calendar custom styles for Colombian holidays and weekends */
+@layer components {
+  .calendar-holiday {
+    background-color: hsl(var(--earth-light)); /* #f2ede4 - Beige muy claro */
+    color: hsl(var(--earth-clay)); /* #976b47 - Arcilla */
+    @apply font-medium;
+  }
+  
+  .calendar-weekend {
+    background-color: hsl(var(--earth-medium)); /* #d1c4b3 - Beige medio */
+    color: hsl(var(--earth-umber)); /* #635448 - Umber */
+    @apply font-medium;
+  }
+  
+  .calendar-weekday {
+    color: hsl(var(--earth-umber)); /* #635448 - Umber */
+    background-color: hsl(40 45% 88%); /* #ede6d8 - Beige claro tierra */
+  }
+
+  /* Calendar responsive styles for mobile devices */
+  .rdp {
+    @apply w-full;
+  }
+  
+  .rdp-months {
+    @apply w-full;
+  }
+  
+  .rdp-month {
+    @apply w-full;
+  }
+  
+  .rdp-table {
+    @apply w-full border-collapse;
+  }
+  
+  .rdp-head_cell,
+  .rdp-cell {
+    @apply p-0;
+  }
+  
+  .rdp-button {
+    @apply w-8 h-8 text-xs p-0 flex items-center justify-center;
+  }
+  
+  /* Mobile specific adjustments */
+  @media (max-width: 640px) {
+    .rdp-button {
+      @apply w-7 h-7 text-xs;
+    }
+    
+    .rdp-head_cell {
+      @apply text-xs p-1;
+    }
+    
+    .rdp-cell {
+      @apply text-xs;
+    }
+    
+    .rdp-nav {
+      @apply gap-1;
+    }
+    
+    .rdp-nav_button {
+      @apply w-8 h-8 p-1;
+    }
+    
+    .rdp-caption {
+      @apply text-sm;
+    }
+  }
+  
+  /* Extra small devices */
+  @media (max-width: 480px) {
+    .rdp-button {
+      @apply w-6 h-6 text-xs;
+    }
+    
+    .rdp-nav_button {
+      @apply w-7 h-7;
+    }
+    
+    .rdp-head_cell {
+      @apply text-xs px-0;
+    }
+  }
+  
+  /* Very small devices */
+  @media (max-width: 360px) {
+    .rdp-button {
+      @apply w-5 h-5 text-xs;
+    }
+    
+    .rdp-nav_button {
+      @apply w-6 h-6;
+    }
+  }
+}
+
+.dark {
+  --background: 210 25% 8%; /* #141a20 - Azul grisáceo muy oscuro */
+  --foreground: 210 20% 95%; /* #f0f3f7 - Azul grisáceo muy claro */
+  --muted: 210 20% 15%; /* #262d35 - Azul grisáceo oscuro */
+  --muted-foreground: 210 15% 60%; /* #8a95a3 - Azul grisáceo medio */
+  --popover: 210 25% 8%; /* #141a20 */
+  --popover-foreground: 210 20% 95%; /* #f0f3f7 */
+  --card: 210 20% 12%; /* #1f252b - Azul grisáceo oscuro */
+  --card-foreground: 210 20% 95%; /* #f0f3f7 */
+  --border: 210 20% 20%; /* #333a42 - Azul grisáceo para bordes */
+  --input: 210 20% 20%; /* #333a42 - Azul grisáceo para inputs */
+  --primary: 135 35% 55%; /* #5ca177 - Verde claro para contraste */
+  --primary-foreground: 0 0% 100%; /* #FFFFFF */
+  --secondary: 77 9% 15%; /* #2a2b25 */
+  --secondary-foreground: 48 67% 95%; /* #f8f7f0 */
+  --accent: 23 32% 45%; /* #a67c5f - Arena más oscuro */
+  --accent-foreground: 0 0% 100%; /* #FFFFFF */
+  --destructive: 0 63% 31%; /* #7F1D1D */
+  --destructive-foreground: 0 0% 98%; /* #FAFAFA */
+  --ring: 77 9% 55%; /* #8b9075 */
+
+  /* Paleta de naturaleza elegante para modo oscuro */
+  --nature-olive: 77 9% 55%; /* #8b9075 - Olive más claro para contraste */
+  --nature-beige: 30 31% 25%; /* #453a2f - Beige oscuro */
+  --nature-sand: 23 32% 45%; /* #a67c5f - Arena más oscuro */
+  --nature-text: 48 67% 95%; /* #f8f7f0 - Texto claro */
+  --nature-button: 77 9% 45%; /* #787c68 - Verde pastel oscuro */
+  --nature-button-hover: 77 9% 55%; /* #8b9075 - Verde pastel hover */
+  --nature-border: 77 9% 20%; /* #353629 - Bordes oscuros */
+  --nature-background: 77 9% 8%; /* #1a1b16 - Fondo muy oscuro */
+  
+  /* Compatibilidad con colores existentes en modo oscuro */
+  --navy: 77 9% 55%; /* Olive claro */
+  --gold: 23 32% 45%; /* Arena oscuro */
+  --royal-blue: 77 9% 55%; /* Olive claro */
+  --light-gold: 30 31% 25%; /* Beige oscuro */
+  --charcoal: 48 67% 95%; /* Texto claro */
+  --success: 120 61% 45%; /* Verde más claro para contraste */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply antialiased bg-background text-foreground;
+    font-family: Inter, system-ui, Arial;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .font-opensans {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  /* Paleta tierra completa */
+  .text-earth-base {
+    color: hsl(var(--earth-base));
+  }
+
+  .bg-earth-base {
+    background-color: hsl(var(--earth-base));
+  }
+
+  .text-earth-light {
+    color: hsl(var(--earth-light));
+  }
+
+  .bg-earth-light {
+    background-color: hsl(var(--earth-light));
+  }
+
+  .text-earth-medium {
+    color: hsl(var(--earth-medium));
+  }
+
+  .bg-earth-medium {
+    background-color: hsl(var(--earth-medium));
+  }
+
+  .text-earth-dark {
+    color: hsl(var(--earth-dark));
+  }
+
+  .bg-earth-dark {
+    background-color: hsl(var(--earth-dark));
+  }
+
+  .text-earth-terracotta {
+    color: hsl(var(--earth-terracotta));
+  }
+
+  .bg-earth-terracotta {
+    background-color: hsl(var(--earth-terracotta));
+  }
+
+  .text-earth-clay {
+    color: hsl(var(--earth-clay));
+  }
+
+  .bg-earth-clay {
+    background-color: hsl(var(--earth-clay));
+  }
+
+  .text-earth-ochre {
+    color: hsl(var(--earth-ochre));
+  }
+
+  .bg-earth-ochre {
+    background-color: hsl(var(--earth-ochre));
+  }
+
+  .text-earth-umber {
+    color: hsl(var(--earth-umber));
+  }
+
+  .bg-earth-umber {
+    background-color: hsl(var(--earth-umber));
+  }
+
+  .text-earth-text {
+    color: hsl(var(--earth-text));
+  }
+
+  /* Compatibilidad con paleta existente */
+  .text-nature-olive {
+    color: hsl(var(--nature-olive));
+  }
+
+  .bg-nature-olive {
+    background-color: hsl(var(--nature-olive));
+  }
+
+  .text-nature-beige {
+    color: hsl(var(--nature-beige));
+  }
+
+  .bg-nature-beige {
+    background-color: hsl(var(--nature-beige));
+  }
+
+  .text-nature-sand {
+    color: hsl(var(--nature-sand));
+  }
+
+  .bg-nature-sand {
+    background-color: hsl(var(--nature-sand));
+  }
+
+  .text-nature-text {
+    color: hsl(var(--nature-text));
+  }
+
+  .bg-nature-button {
+    background-color: hsl(var(--nature-button));
+  }
+
+  .hover\:bg-nature-button-hover:hover {
+    background-color: hsl(var(--nature-button-hover));
+  }
+
+  /* Compatibilidad con clases existentes */
+  .text-navy {
+    color: hsl(var(--nature-olive));
+  }
+
+  .bg-navy {
+    background-color: hsl(var(--nature-olive));
+  }
+
+  .text-gold {
+    color: hsl(var(--nature-sand));
+  }
+
+  .bg-gold {
+    background-color: hsl(var(--nature-sand));
+  }
+
+  .text-royal-blue {
+    color: hsl(var(--nature-olive));
+  }
+
+  .bg-royal-blue {
+    background-color: hsl(var(--nature-olive));
+  }
+
+  .text-light-gold {
+    color: hsl(var(--nature-beige));
+  }
+
+  .bg-light-gold {
+    background-color: hsl(var(--nature-beige));
+  }
+
+  .text-charcoal {
+    color: hsl(var(--nature-text));
+  }
+
+  .bg-charcoal {
+    background-color: hsl(var(--nature-text));
+  }
+
+  .text-success {
+    color: hsl(var(--success));
+  }
+
+  .bg-success {
+    background-color: hsl(var(--success));
+  }
+
+  /* Mejoras para la calidad de imagen */
+  .image-quality-high {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    image-rendering: high-quality;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
